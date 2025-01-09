@@ -10,7 +10,7 @@ const User = require("./model/user")
 // Schedule the cron job to run every day at midnight
 cron.schedule('0 0 * * *', async () => {
     try {
-      const currentDate = new Date();
+      const currentDate = new Date.now();
       const tomorrow = new Date();
       tomorrow.setDate(tomorrow.getDate() + 1);
   
