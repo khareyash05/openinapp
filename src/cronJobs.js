@@ -12,6 +12,8 @@ cron.schedule('0 0 * * *', async () => {
     try {
       const currentDate = new Date.now();
       const tomorrow = new Date();
+      const doaft = new Date();
+      doaft.getFullYear(tomorrow.getFullYear());
       tomorrow.setDate(tomorrow.getDate() + 1);
   
       // Find tasks that have passed their due_date
