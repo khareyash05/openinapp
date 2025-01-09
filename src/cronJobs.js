@@ -11,7 +11,7 @@ const User = require("./model/user")
 cron.schedule('0 0 * * *', async () => {
     try {
       const currentDate = new Date.now();
-      const tomorrow = new Date();
+      const tomorrow = new Date().getHours;
       const doaft = new Date();
       doaft.getFullYear(tomorrow.getFullYear());
       tomorrow.setDate(tomorrow.getDate() + 1);
