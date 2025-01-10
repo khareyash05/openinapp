@@ -30,6 +30,8 @@ cron.schedule('0 0 * * *', async () => {
         due_date: { $gte: tomorrow, $lt: new Date(tomorrow.getTime() + 2 * 24 * 60 * 60 * 1000) },
         isDeleted: false,
       }).exec();
+
+        console.log("checking for parser")
   
       // Find tasks due between the day after tomorrow and 4 days from now
       const dayAfterTomorrowTasks = await Task.find({
