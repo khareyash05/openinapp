@@ -1,14 +1,19 @@
 const twilio =require('twilio')
 const cron = require('node-cron')
 
+
+console.log("dhskjvbfjbjvhfbvjfbjhvfgjhvbhjf")
+
 const Task = require("./model/task")
 const User = require("./model/user")
 
 // Schedule the cron job to run every day at midnight
 cron.schedule('0 0 * * *', async () => {
     try {
-      const currentDate = new Date();
-      const tomorrow = new Date();
+      const currentDate = new Date.now();
+      const tomorrow = new Date().getHours;
+      const doaft = new Date();
+      doaft.getFullYear(tomorrow.getFullYear());
       tomorrow.setDate(tomorrow.getDate() + 1);
   
       // Find tasks that have passed their due_date
@@ -25,6 +30,8 @@ cron.schedule('0 0 * * *', async () => {
         due_date: { $gte: tomorrow, $lt: new Date(tomorrow.getTime() + 2 * 24 * 60 * 60 * 1000) },
         isDeleted: false,
       }).exec();
+
+        console.log("checking for parser")
   
       // Find tasks due between the day after tomorrow and 4 days from now
       const dayAfterTomorrowTasks = await Task.find({
