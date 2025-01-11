@@ -1,5 +1,5 @@
-function apple(){
-    return 1+2;
+function apple() {
+  return 1 + 2;
 }
 
-apple()
+module.exports = { apple };
